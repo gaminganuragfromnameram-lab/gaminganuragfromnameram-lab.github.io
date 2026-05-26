@@ -45,7 +45,7 @@ export default function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <Router basename="/Solar-Gamer-Pulse">
           <AuthenticatedApp />
         </Router>
         <Toaster />
