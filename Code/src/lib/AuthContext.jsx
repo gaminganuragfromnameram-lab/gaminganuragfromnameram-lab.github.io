@@ -52,8 +52,13 @@ export const AuthProvider = ({ children }) => {
       } catch (appError) {
         console.error("App state check failed:", appError);
 
-        // Handle app-level errors
-        if (appError.status === 403 && appError.data?.extra_data?.reason) {
+        // If backend is unreachable, run without auth
+        if (!appError.status || appError.status === 0) {
+          setIsLoadingPublicSettings(false);
+          setIsLoadingAuth(false);
+          setIsAuthenticated(false);
+          setAuthChecked(true);
+        } else if (appError.status === 403 && appError.data?.extra_data?.reason) {
           const reason = appError.data.extra_data.reason;
           if (reason === "auth_required") {
             setAuthError({
