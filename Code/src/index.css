@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 15% 3%;
+    --foreground: 210 40% 96%;
+    --card: 240 12% 6%;
+    --card-foreground: 210 40% 96%;
+    --popover: 240 12% 6%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 240 15% 3%;
+    --secondary: 290 80% 55%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 320 85% 55%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 186 100% 50%;
+    --chart-1: 186 100% 50%;
+    --chart-2: 290 80% 55%;
+    --chart-3: 320 85% 55%;
+    --chart-4: 260 70% 60%;
+    --chart-5: 200 90% 50%;
+    --radius: 0.75rem;
+
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-rajdhani: 'Rajdhani', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 240 15% 3%;
+    --foreground: 210 40% 96%;
+    --card: 240 12% 6%;
+    --card-foreground: 210 40% 96%;
+    --popover: 240 12% 6%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 240 15% 3%;
+    --secondary: 290 80% 55%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 320 85% 55%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 186 100% 50%;
+    --chart-1: 186 100% 50%;
+    --chart-2: 290 80% 55%;
+    --chart-3: 320 85% 55%;
+    --chart-4: 260 70% 60%;
+    --chart-5: 200 90% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(240 15% 3%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(186 100% 50% / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(186 100% 50% / 0.5);
+}
+
+/* Neon glow utilities */
+.neon-text-cyan {
+  text-shadow: 0 0 7px hsl(186 100% 50% / 0.8), 0 0 20px hsl(186 100% 50% / 0.4), 0 0 40px hsl(186 100% 50% / 0.2);
+}
+.neon-text-magenta {
+  text-shadow: 0 0 7px hsl(320 85% 55% / 0.8), 0 0 20px hsl(320 85% 55% / 0.4), 0 0 40px hsl(320 85% 55% / 0.2);
+}
+.neon-border-cyan {
+  box-shadow: 0 0 5px hsl(186 100% 50% / 0.3), 0 0 15px hsl(186 100% 50% / 0.15), inset 0 0 5px hsl(186 100% 50% / 0.05);
+}
+.neon-border-magenta {
+  box-shadow: 0 0 5px hsl(320 85% 55% / 0.3), 0 0 15px hsl(320 85% 55% / 0.15), inset 0 0 5px hsl(320 85% 55% / 0.05);
+}
+
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: 0 0 5px hsl(186 100% 50% / 0.5), 0 0 20px hsl(186 100% 50% / 0.3), 0 0 40px hsl(186 100% 50% / 0.15); }
+  50% { box-shadow: 0 0 10px hsl(186 100% 50% / 0.8), 0 0 30px hsl(186 100% 50% / 0.5), 0 0 60px hsl(186 100% 50% / 0.25); }
+}
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
